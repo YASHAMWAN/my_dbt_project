@@ -10,7 +10,8 @@ rank,
 score,
 max(refresh_date) over (partition by week) as max_refresh
 FROM
-  `bigquery-public-data.google_trends.international_top_rising_terms`
+  {{source("google_trends","international_top_rising_terms") }}
+  --`bigquery-public-data.google_trends.international_top_rising_terms`
 WHERE
   refresh_date >= "2024-01-01"
   AND country_name = "Saudi Arabia"
