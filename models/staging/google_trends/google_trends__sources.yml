@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: google_trends
+    database: bigquery-public-data
+    schema: google_trends
+    freshness: # default freshness
+      warn_after: {count: 7, period: day}
+      error_after: {count: 14, period: day}
+    loaded_at_field: "CAST(refresh_date AS TIMESTAMP)"
+    
+    tables: 
+      - name: top_terms
+      - name: international_top_rising_terms
+        freshness:
+          warn_after: {count: 30, period: day}
+          error_after: {count: 100, period: day}
