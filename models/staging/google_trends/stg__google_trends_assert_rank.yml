@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg__top_international_terms
+    columns:
+      - name: rank
+        tests:
+          - not_null
+          
