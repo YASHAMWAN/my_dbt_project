@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: google_trends
+    description: A raw data of Google Trends
     database: bigquery-public-data
     schema: google_trends
     freshness: # default freshness
@@ -11,7 +12,9 @@ sources:
     
     tables: 
       - name: top_terms
+        description: This table contains the top terms in Riyadh
       - name: international_top_rising_terms
+        description: This table contains the top international terms
         freshness:
           warn_after: {count: 30, period: day}
           error_after: {count: 100, period: day}
